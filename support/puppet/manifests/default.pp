@@ -129,7 +129,7 @@ class apache_install {
 
   # Bug 1: SendFile is not working on vagrant box!! so we must disable it
   #@see http://stackoverflow.com/questions/6298933/shared-folder-in-virtualbox-for-apache/6511441#6511441
-  apache::vhost {'12.0.0.3':
+  apache::vhost {'10.0.0.2':
     port     => 80,
     docroot  => '/vagrant/public',
     override => ['All'],
