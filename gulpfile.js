@@ -25,7 +25,7 @@ elixir(function(mix) {
      * 2) copy bootstrap fonts from vendor to public
      * 3) mix jquery with bootstrap scripts to app.js
      */
-    mix.sass('app.scss', 'public/css', {includePaths: [paths.bootstrap + 'stylesheets/']})
+    mix.sass('app.sass', 'public/css', {includePaths: [paths.bootstrap + 'stylesheets/']})
         .copy(paths.bootstrap + 'fonts/bootstrap/**', 'public/fonts')
         .scripts([
             paths.jquery + "dist/jquery.min.js",
