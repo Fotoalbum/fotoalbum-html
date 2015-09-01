@@ -1,5 +1,10 @@
 var elixir = require('laravel-elixir');
 
+//Paths to libraries
+var paths = {
+    'bootstrap': 'node_modules/bootstrap-sass/assets/'
+}
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -12,5 +17,5 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.less('app.less');
+    mix.sass('app.scss', 'public/css', {includePaths: [paths.bootstrap + 'stylesheets/']});
 });
