@@ -50,8 +50,8 @@ return [
             'driver'   => 'mongodb',
             'host'     => 'localhost',
             'port'     => 27017,
-            'username' => 'fotoalbum',
-            'password' => 'fotoalbum',
+            'username' => '',
+            'password' => '',
             'database' => 'fotoalbum',
             /*
             'options' => array(
