@@ -18,6 +18,13 @@ var paths = {
  */
 
 elixir(function(mix) {
+    /*
+     * Sander
+     *
+     * 1) compile bootstrap sass
+     * 2) copy bootstrap fonts from vendor to public
+     * 3) mix jquery with bootstrap scripts to app.js
+     */
     mix.sass('app.scss', 'public/css', {includePaths: [paths.bootstrap + 'stylesheets/']})
         .copy(paths.bootstrap + 'fonts/bootstrap/**', 'public/fonts')
         .scripts([
