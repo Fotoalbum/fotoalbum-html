@@ -152,7 +152,7 @@ class project_initializer {
   # Let composer handle our libraries
   exec { "composer_dependency_install":
     command => "composer install",
-    user => "www-data",
+    user => "vagrant",
     cwd  => '/vagrant',
     environment => [ "HOME=/home/vagrant" ]
   }
@@ -206,17 +206,21 @@ node default {
   }
 
   # Mongo
-  class {'::mongodb::server':
-    auth => true,
-    ensure => 'present',
+  class {'::mongodb::globals':
+    manage_package_repo => true,
+  } ->
+  class { '::mongodb::server':
+    auth    => false,
+    ensure  => 'present',
     bind_ip => ['127.0.0.1'],
-  }
+  } ->
+  class {'::mongodb::client': }
+
   mongodb::db { 'fotoalbum':
     user => 'fotoalbum',
     password_hash => '6fdcc22bd0064a729b6ff05151ffbb43',
   }
 
-  class { 'apt': }
   apt::pin { 'sid': priority => 100 }
 
   class { roles::php: } ->
